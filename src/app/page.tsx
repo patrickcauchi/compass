@@ -1,10 +1,20 @@
-import React from "react";
 
-export default function Page() {
+
+'use client';
+import React, { useState } from 'react';
+import AllocationWheel from '../components/AllocationWheel';
+import RegimeDisplay from '../components/RegimeDisplay';
+import AllocationPanel from '../components/AllocationPanel';
+
+export default function Home() {
+  const [regime] = useState('Risk-On');
+  const [allocations] = useState({ BTC: 60, ETH: 30, USDT: 10 });
+
   return (
-    <main>
-      <h1>Hello, Tree-sitter!</h1>
-      <p>This is a sample TSX file for parser testing.</p>
-    </main>
+    <div className="flex flex-col items-center justify-center space-y-8">
+      <AllocationWheel />
+      <RegimeDisplay regime={regime} />
+      <AllocationPanel allocations={allocations} />
+    </div>
   );
 }

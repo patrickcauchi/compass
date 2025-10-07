@@ -2,6 +2,18 @@
 
 Compass is a deterministic, brief-driven codebase management and metadata generation system, designed for reproducibility, clarity, and minimalism. It leverages Tree-sitter for robust code parsing and outputs self-describing metadata packs for ingestion by Architect Orbis.
 
+## Quickstart (App)
+
+1. Install dependencies
+2. Run the dev server
+3. Regenerate semantic packs
+
+### Scripts
+
+- `npm run dev` – Start Next.js dev server
+- `python tools/scan_full.py` – Regenerate packs
+
+
 ## Features
 - **Brief-driven automation:** All changes are initiated by explicit Change Briefs.
 - **Tree-sitter parsing:** Accurate AST extraction for TypeScript/TSX source files.

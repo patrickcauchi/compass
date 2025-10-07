@@ -1,8 +1,8 @@
 from tree_sitter_languages import get_parser
 from pathlib import Path
 
-def iter_source_files(root="src", exts=(".ts", ".tsx")):
-    """Return all TypeScript and TSX files under /src."""
+def iter_source_files(root="src", exts=(".ts", ".tsx", ".css")):
+    """Return all TypeScript, TSX, and CSS files under /src."""
     return [p for p in Path(root).rglob("*") if p.suffix in exts]
 
 def get_chunks(path: Path):

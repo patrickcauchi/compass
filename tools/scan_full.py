@@ -1,7 +1,8 @@
 from pathlib import Path
 import json, jsonlines
 from datetime import datetime
-from extract_basic import iter_source_files, get_chunks, get_imports
+from extract_basic import iter_source_files, get_imports
+from extract_structural import extract_structural_metadata
 
 def build_super_index(files):
     items = []
@@ -60,12 +61,15 @@ def main():
     dep_graph = build_dep_graph(files)
     (out_dir / "dep_graph.json").write_text(json.dumps(dep_graph, indent=2))
 
-    # chunks_meta
+    # chunks_meta (structural)
     all_chunks = []
     for p in files:
-        all_chunks.extend(get_chunks(p))
+        all_chunks.extend(extract_structural_metadata(str(p)))
+    # sort by file_path, start_line for deterministic output
+    all_chunks.sort(key=lambda c: (c["file_path"], c["start_line"]))
     with jsonlines.open(out_dir / "chunks_meta.jsonl", mode="w") as writer:
-        for c in all_chunks: writer.write(c)
+        for c in all_chunks:
+            writer.write(c)
 
     # manifest
     manifest = build_manifest(files, len(all_chunks))
