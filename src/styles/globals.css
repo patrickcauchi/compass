@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+/* src/styles/globals.css */
+
+/* Tailwind entry — v4 uses this single import; v3 also tolerates it */
+@import "tailwindcss";
+
+/* ---- Design tokens (local) ---- */
+:root{
+	/* ≈ border-gray-800 */
+	--comp-border: #1f2937;
+	/* ≈ bg-gray-900/60 */
+	--comp-panel: rgb(17 24 39 / 0.60);
+}
+
+/* ---- Utilities (no @apply, no theme() calls) ---- */
+
+/* Frosted glass panel */
+.glass{
+	background-color: var(--comp-panel);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid var(--comp-border);
+	border-radius: 0.75rem; /* ~rounded-xl */
+}
+
+/* Numeric alignment for KPIs */
+.num{ font-variant-numeric: tabular-nums lining-nums; }
+
+/* Soft text glow (use sparingly) */
+.text-glow{ text-shadow: 0 0 6px rgba(59,130,246,0.30); }
+
+/* Neutral divider */
+.divider{ border-top: 1px solid var(--comp-border); }
+
+/* Heading helper */
+.heading{ font-weight: 600; letter-spacing: 0.025em; }
+
+/* Mono helper */
+.mono{
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+							 "Liberation Mono","Courier New", monospace;
+}

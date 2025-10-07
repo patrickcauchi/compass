@@ -1,18 +1,27 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
-type Props = { regime: string };
+interface RegimeDisplayProps {
+  regime: string;
+}
 
-export default function RegimeDisplay({ regime }: Props) {
-  const color =
-    regime === 'Risk-On' ? 'text-green-400' :
-    regime === 'Neutral' ? 'text-yellow-400' :
-    'text-red-400';
+export default function RegimeDisplay({ regime }: RegimeDisplayProps) {
+  const colorMap: Record<string, string> = {
+    "Risk-On": "text-green-400",
+    "Neutral": "text-yellow-400",
+    "Risk-Off": "text-red-400",
+  };
+  const color = colorMap[regime] || "text-gray-300";
 
   return (
-    <div className="my-6 text-center">
-      <h2 className="text-xl font-semibold text-white mb-2">Current Regime</h2>
-      <div className={`text-2xl font-bold ${color}`}>{regime}</div>
+    <div
+      className={`
+        text-3xl font-bold ${color}
+        drop-shadow-[0_0_6px_rgba(0,255,0,0.3)]
+        transition-colors duration-300
+      `}
+    >
+      {regime}
     </div>
   );
 }
