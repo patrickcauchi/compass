@@ -1,6 +1,11 @@
 # Python virtual environment
 .venv/
 
+# Sensitive files
+.env
+*.key
+*.pem
+
 # VS Code settings
 .vscode/
 
@@ -9,6 +14,7 @@ node_modules/
 
 # Output and metadata packs
 packs/
+packs/*.jsonl
 
 # System files
 .DS_Store
@@ -24,6 +30,10 @@ __pycache__/
 # Logs and temp
 *.log
 *.tmp
+
+# Sensitive logs and exports
+# Proprietary/alpha (future)
+# (add specific files/folders as needed)
 
 # Ignore agents, tools, and reports if needed for deployment
 # Uncomment if you want to exclude these from pushes
