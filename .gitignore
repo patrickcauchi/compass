@@ -1,0 +1,32 @@
+# Python virtual environment
+.venv/
+
+# VS Code settings
+.vscode/
+
+# Node modules (if any JS tooling is added)
+node_modules/
+
+# Output and metadata packs
+packs/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Git itself
+.git/
+
+# Logs and temp
+*.log
+*.tmp
+
+# Ignore agents, tools, and reports if needed for deployment
+# Uncomment if you want to exclude these from pushes
+# agents/
+# tools/
+# docs/reports/
