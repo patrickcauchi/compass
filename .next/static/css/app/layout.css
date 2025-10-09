@@ -283,6 +283,9 @@
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
+  .block {
+    display: block;
+  }
   .contents {
     display: contents;
   }
@@ -561,6 +564,10 @@
   .shadow-\[0_0_30px_rgba\(59\,130\,246\,0\.25\)\] {
     --tw-shadow: 0 0 30px var(--tw-shadow-color, rgba(59,130,246,0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .blur {
+    --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .drop-shadow-\[0_0_6px_rgba\(0\,255\,0\,0\.3\)\] {
     --tw-drop-shadow-size: drop-shadow(0 0 6px var(--tw-drop-shadow-color, rgba(0,255,0,0.3)));
